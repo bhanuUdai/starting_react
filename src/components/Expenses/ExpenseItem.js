@@ -2,7 +2,7 @@ import "./ExpenseItem.css";
 import Card from "../UI/Card";
 import ExpenseDetails from "./ExpenseDetails.js";
 import ExpenseDate from "./ExpenseDate";
-function ExpenseItem(prop) {
+let ExpenseItem=(prop)=> {
   return (
     <Card className="expense-item">
       <div className="expense-item__description">

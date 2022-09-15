@@ -1,6 +1,6 @@
 import './Card.css'
 
-function Card(prop)
+let Card=(prop)=>
 {
     let classes='card '+prop.className
     return(

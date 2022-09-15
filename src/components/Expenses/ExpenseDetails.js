@@ -1,5 +1,5 @@
 import "./ExpenseItem.css";
-function ExpenseDetails(prop) {
+let ExpenseDetails=(prop)=> {
   return (
     <div>
       <div className="expense-item__price">Rs {prop.price}</div>
