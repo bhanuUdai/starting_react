@@ -1,5 +1,4 @@
-import ExpenseItem from "./components/ExpenseItem.js";
-
+import Expense from "./components/Expenses/Expense.js"
 let items = [
   {
     id: 1,
@@ -35,16 +34,7 @@ function App() {
   return (
     <div>
       <h2>Expense Tracker</h2>
-      {items.map((key) => {
-        return (
-          <ExpenseItem
-            date={key.date}
-            title={key.title}
-            location={key.location}
-            price={key.amount}
-          ></ExpenseItem>
-        );
-      })}
+      <Expense items={items}></Expense>
     </div>
   );
 }
