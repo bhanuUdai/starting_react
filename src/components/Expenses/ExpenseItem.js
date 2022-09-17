@@ -1,31 +1,33 @@
+import React from 'react'
+
 import "./ExpenseItem.css";
 import Card from "../UI/Card";
 import ExpenseDetails from "./ExpenseDetails.js";
 import ExpenseDate from "./ExpenseDate";
-let ExpenseItem=(prop)=> {
+let ExpenseItem = (prop) => {
+  let updateTitle = prop.title;
 
-  const clickHandler=()=>
-  {
-    console.log('clicked!!')
-  }
-  const deleteHandeler=()=>
-  {
-    console.log("deleted")
-  }
+  const clickHandler = () => {
+    updateTitle = "drinks";
+    console.log(updateTitle)
+  };
+  const deleteHandeler = () => {
+    console.log("deleted");
+  };
 
   return (
     <Card className="expense-item">
       <div className="expense-item__description">
-        <ExpenseDate date={prop.date}/>
-        <h2>{prop.title} </h2>
+        <ExpenseDate date={prop.date} />
+        <h2>{updateTitle} </h2>
         <h2>{prop.location}</h2>
-        <ExpenseDetails  price={prop.price} />
+        <ExpenseDetails price={prop.price} />
       </div>
-      <button onClick={clickHandler} >Change Title</button>
+      <button onClick={clickHandler}>Change Title</button>
       <button onClick={deleteHandeler}>Delete</button>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;
 
@@ -33,6 +35,5 @@ export default ExpenseItem;
 //i.e in items array has object with date, it will store that date
 // this attribute will pass as argument to ExpenseDate component function
 
-
 //In react events are passed as "prop" , but "on" should be used before events name, then only react will take it as event (e.g  onClick)
-//here functions that we will passed in events should not be evoked i.e '( )' should not used, other wise they will evoked when page will loaded 
+//here functions that we will passed in events should not be evoked i.e '( )' should not used, other wise they will evoked when page will loaded
