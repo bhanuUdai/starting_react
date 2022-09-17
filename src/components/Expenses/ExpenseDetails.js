@@ -1,4 +1,3 @@
-import React from 'react'
 import "./ExpenseItem.css";
 let ExpenseDetails=(prop)=> {
   return (
