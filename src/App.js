@@ -32,10 +32,16 @@ let items = [
 ];
 
 function App() {
+
+const addExpensesHandler=(expense)=>
+{
+  console.log(expense)
+}
+
   return (
     <div>
       <h2>Expense Tracker</h2>
-      <NewExpenses/>
+      <NewExpenses addExpenses={addExpensesHandler}/>
       <Expense items={items}></Expense>
     </div>
   );
@@ -43,12 +49,4 @@ function App() {
 
 export default App;
 
-
-//.map() is the most effective way to loop for components
-//loop should be in { } because it is a js function
-//map() is returning <ExpenseItem> and in <ExpenseItem> we are passing attributes
-//example:  date==key,  {key.date}==value
-// key name should be same in JSX text content in ExpenseItem.js file
-//https://www.pluralsight.com/guides/how-to-implement-a-component-%22loop%22-with-react
-//read this article for more
-// hl
+//here we create addExpenses attribute, having "addExpensesHandler" function in it, This function will evoked in NewExpense.js, that is its child component

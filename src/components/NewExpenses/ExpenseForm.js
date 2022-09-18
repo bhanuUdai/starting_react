@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-function ExpenseForm() {
+function ExpenseForm(prop) {
   const [enteredTitle, newSetTitle] = useState("");
   const [enteredAmount, newSetAmount] = useState("");
   const [enteredDate, newSetDate] = useState("");
@@ -26,22 +26,20 @@ function ExpenseForm() {
       enteredAmount,
       enteredDate
     }
-    let data=Object.keys(obj)
-    data.forEach((key)=>
-    {
-      if(obj[key])
-      {
-        console.log(obj[key])
-      }
-    })
+    // let data=Object.keys(obj)
+    // data.forEach((key)=>
+    // {
+    //   if(obj[key])
+    //   {
+    //     console.log(obj[key])
+    //   }
+    // })
+    prop.onSaveExpenseData(obj)
     newSetTitle('')
     newSetAmount('')
     newSetDate('')
 
-    //here we are envoking the useState again with empty input value, which means entered values will become empty
-    // these should be envoked inside the submitHandler, which we are using to submit the form
-    //here the flow will be like we enter new value, stored in state, we submit form and values get console
-    //after that code will reach line 37,38,38 and evoke useState again, it will rerender the component and pass empty values, which will get appear in ui because of "value" keyword we use in each <input>
+    //here in line 37 we are evoking the the function in "onSaveExpenseData" in its parent and passing "obj" as parameter
   }
   
 
