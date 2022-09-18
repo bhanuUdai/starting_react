@@ -7,19 +7,25 @@ const[enteredTitle,newSetTitle]=useState('')
 const[enteredAmount,newSetAmount]=useState('')
 const[enteredDate,newSetDate]=useState('')
 
+// const[userInput,setUserInput]=useState({
+//   enteredTitle:'',
+//   enteredAmount:'',
+//   enteredDate:''
+// })
+
   function newTitle(event)
   {
-    enteredTitle(event.target.value)
+    newSetTitle(event.target.value)
   }
   
   function newAmount(event)
   {
-    enteredAmount(event.target.value)
+    newSetAmount(event.target.value)
   }
 
   function newDate(event)
   {
-    enteredDate(event.target.value)
+    newSetDate(event.target.value)
   }
 
   return (
@@ -82,6 +88,6 @@ export default ExpenseForm;
 // onChange event will fire when you change something 
 
 // Here we can use multiple useStates()
-//Note that event will always return string, if it is number as in amount , the number will be in string
+// Note that event will always return string, if it is number as in amount , the number will be in string
 // therefor using ' ' usestate('')
 // imitially it will be empty because form will be empty
