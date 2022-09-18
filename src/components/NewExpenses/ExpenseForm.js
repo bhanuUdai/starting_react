@@ -3,29 +3,52 @@ import "./ExpenseForm.css";
 
 function ExpenseForm() {
 
-const[enteredTitle,newSetTitle]=useState('')
-const[enteredAmount,newSetAmount]=useState('')
-const[enteredDate,newSetDate]=useState('')
+// const[enteredTitle,newSetTitle]=useState('')
+// const[enteredAmount,newSetAmount]=useState('')
+// const[enteredDate,newSetDate]=useState('')
+
+//Here we are basically putting all useState in single object
+//object is created in useState, having initial value(e.g : enteredTitle) which is initially empty, similarly with other input values
+//userInput will be enteredTitle (i.e old one) and setUserInput will be new one which will be return 
 
 // const[userInput,setUserInput]=useState({
 //   enteredTitle:'',
 //   enteredAmount:'',
 //   enteredDate:''
 // })
+const[userInput,setUserInput]=useState({
+  enteredTitle:'',
+  enteredAmount:'',
+  enteredDate:''
+})
 
   function newTitle(event)
   {
-    newSetTitle(event.target.value)
+    // newSetTitle(event.target.value)
+    
+    setUserInput({
+      ...userInput,
+      enteredTitle:event.target.value
+    })
   }
   
+  //Here new value will be set but to retain values of other keys ,here we are using spread operator so that when we will update one key value , other remains unchanged
+
+
   function newAmount(event)
   {
-    newSetAmount(event.target.value)
+    setUserInput({
+      ...userInput,
+      enteredAmount:event.target.value
+    })
   }
 
   function newDate(event)
   {
-    newSetDate(event.target.value)
+    setUserInput({
+      ...userInput,
+      enteredDate:event.target.value
+    })
   }
 
   return (
