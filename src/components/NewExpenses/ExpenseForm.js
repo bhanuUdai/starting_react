@@ -1,25 +1,39 @@
-import React from "react";
+import React,{useState} from "react";
 import "./ExpenseForm.css";
 
 function ExpenseForm() {
 
-  function newInput(event)
+const[enteredTitle,newSetTitle]=useState('')
+const[enteredAmount,newSetAmount]=useState('')
+const[enteredDate,newSetDate]=useState('')
+
+  function newTitle(event)
   {
-    console.log(event.target.value)
+    enteredTitle(event.target.value)
   }
   
+  function newAmount(event)
+  {
+    enteredAmount(event.target.value)
+  }
+
+  function newDate(event)
+  {
+    enteredDate(event.target.value)
+  }
+
   return (
     <form>
       <div className="new-expense__controls">
 
         <div>
           <label htmlFor="expense_title">Expense Title</label>
-          <input type="text" id="expense_title" onChange={newInput}></input>
+          <input type="text" id="expense_title" onChange={newTitle}></input>
         </div>
 
         <div className="new-expense__controls">
           <label htmlFor="expense_amount">Expense Amount</label>
-          <input type="number" id="expense_amount"></input>
+          <input type="number" id="expense_amount" onChange={newAmount}></input>
         </div>
 
         <div className="new-expense__controls">
@@ -29,6 +43,7 @@ function ExpenseForm() {
             id="expense_date"
             min="2019-01-01"
             max="2022-12-31"
+            onChange={newDate}
           ></input>
         </div>
 
@@ -53,7 +68,7 @@ export default ExpenseForm;
 // {
           // statements
 // }
-
+// to create events
 
 //here we are doing same things in
 // function newInput(event)
@@ -65,3 +80,8 @@ export default ExpenseForm;
 //i.e event.target.value
 
 // onChange event will fire when you change something 
+
+// Here we can use multiple useStates()
+//Note that event will always return string, if it is number as in amount , the number will be in string
+// therefor using ' ' usestate('')
+// imitially it will be empty because form will be empty
