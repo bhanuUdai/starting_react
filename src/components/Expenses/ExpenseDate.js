@@ -3,7 +3,7 @@ import './ExpenseDate.css'
 
 let ExpenseDate =  (prop)=> {
 
-  console.log(prop.date)
+  // console.log(prop.date)
   let month = prop.date.toLocaleString("en-US", { month: "long" });
   let day = prop.date.toLocaleString("en-US", { day: "2-digit" });
   let year = prop.date.toLocaleString("en-US", { year: "numeric" });
