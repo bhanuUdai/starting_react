@@ -15,16 +15,20 @@ function ExpenseForm(prop) {
   }
 
   function newDate(event) {
-    newSetDate(event.target.value);
+
+    let [year,month,day]=event.target.value.split('-')
+
+    console.log("date")
+    newSetDate(new Date(year,month,day));
   }
 
   function submitHandler(event)
   {
     event.preventDefault()
     let obj={
-      enteredTitle,
-      enteredAmount,
-      enteredDate
+      title:enteredTitle,
+      amount:enteredAmount,
+      date:enteredDate
     }
     // let data=Object.keys(obj)
     // data.forEach((key)=>

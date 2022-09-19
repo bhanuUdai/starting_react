@@ -1,5 +1,6 @@
-import Expense from "./components/Expenses/Expense.js"
-import NewExpenses from "./components/NewExpenses/NewExpense.js"
+import React, { useState } from "react";
+import Expense from "./components/Expenses/Expense.js";
+import NewExpenses from "./components/NewExpenses/NewExpense.js";
 let items = [
   {
     id: 1,
@@ -33,15 +34,20 @@ let items = [
 
 function App() {
 
-const addExpensesHandler=(expense)=>
-{
-  console.log(expense)
-}
+  
+  const [oldItems, newItem] = useState(items);
 
+  const addExpensesHandler = (expense) => {
+   
+    // let data=items.push(expense)
+    console.log(oldItems);
+    newItem(items.push(expense));
+  };
+  console.log(items);
   return (
     <div>
       <h2>Expense Tracker</h2>
-      <NewExpenses addExpenses={addExpensesHandler}/>
+      <NewExpenses addExpenses={addExpensesHandler} />
       <Expense items={items}></Expense>
     </div>
   );
