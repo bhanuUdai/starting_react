@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import ExpensesFilter from "../NewExpenses/ExpensesFilter";
-import ExpenseItem from "./ExpenseItem";
+
 import "./Expense.css";
 import Card from "../UI/Card.js";
+import ExpensesList from './ExpensesList'
+
 let Expense = (prop) => {
   const [filteredYear, setYear] = useState(2020);
 
@@ -18,25 +20,7 @@ let Expense = (prop) => {
 
   // console.log(filteredExpenses);
 
-  let expenseContent=<p>No Expense Available</p>
-  if(filteredExpenses.length===1)
-  {
-    expenseContent= <p>Only single Expense here. Please add more...</p>
-  }
-  else if(filteredExpenses.length>0)
-  {
-    expenseContent=filteredExpenses.map((data) => {
-      return (
-        <ExpenseItem
-          key={data.id}
-          date={data.date}
-          title={data.title}
-          location={data.location}
-          price={data.amount}
-        ></ExpenseItem>
-      );
-    })
-  }
+  
 
   return (
     <Card className="expenses">
@@ -45,33 +29,7 @@ let Expense = (prop) => {
         year={getFilterYear}
       ></ExpensesFilter>
 
-    {expenseContent}
-
-      {/* {filteredExpenses.length===0 && <p>No Expense Available</p> }
-      {filteredExpenses.length>0 && filteredExpenses.map((data) => {
-        return (
-          <ExpenseItem
-            key={data.id}
-            date={data.date}
-            title={data.title}
-            location={data.location}
-            price={data.amount}
-          ></ExpenseItem>
-        );
-      })} */}
-
-      {/* {filteredExpenses.length===0?<p>No Expense Available</p>:  filteredExpenses.map((data) => {
-        return (
-          <ExpenseItem
-            key={data.id}
-            date={data.date}
-            title={data.title}
-            location={data.location}
-            price={data.amount}
-          ></ExpenseItem>
-        );
-      })} */}
-      
+<ExpensesList data={filteredExpenses} />
     </Card>
   );
 };
