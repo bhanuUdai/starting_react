@@ -37,10 +37,10 @@ function App() {
 
   const addExpensesHandler = (expense) => {
     // let data=items.push(expense)
-    console.log(expense);
+    // console.log(expense);
     newItem([...oldItems, expense]);
   };
-  console.log(items);
+  // console.log(items);
   return (
     <div>
       <h2>Expense Tracker</h2>

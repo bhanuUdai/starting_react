@@ -13,18 +13,19 @@ let Expense=(prop)=> {
     setYear(newYear)
   }
 
-  console.log(defaultYear)
+   console.log(defaultYear)
 
   return (
     <Card className="expenses">
     <ExpensesFilter fixedYear={defaultYear} year={getFilterYear} ></ExpensesFilter>
-      {item.map((key) => {
+      {item.map((data) => {
         return (
           <ExpenseItem
-            date={key.date}
-            title={key.title}
-            location={key.location}
-            price={key.amount}
+          key={data.id}
+            date={data.date}
+            title={data.title}
+            location={data.location}
+            price={data.amount}
           ></ExpenseItem>
         );
       })}

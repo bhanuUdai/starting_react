@@ -21,6 +21,8 @@ function ExpenseForm(prop) {
     // console.log(year,month,day)
     newSetDate(new Date(year, month - 1, day));
   }
+  
+  // console.log(enteredDate)
   //here after getting date from input, we are extracting year, month and day to agin put in new Date() function which will now give date in (like: 2022,sep,19 timezome) kind of format
   function submitHandler(event) {
     event.preventDefault();
@@ -29,6 +31,8 @@ function ExpenseForm(prop) {
       amount: enteredAmount,
       date: enteredDate,
     };
+
+    console.log(enteredDate)
     // let data=Object.keys(obj)
     // data.forEach((key)=>
     // {
@@ -40,7 +44,7 @@ function ExpenseForm(prop) {
     prop.onSaveExpenseData(obj);
     newSetTitle("");
     newSetAmount("");
-    newSetDate("");
+    newSetDate('');
 
     //here in line 37 we are evoking the the function in "onSaveExpenseData" in its parent and passing "obj" as parameter
   }
