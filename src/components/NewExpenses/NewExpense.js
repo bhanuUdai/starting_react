@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 
@@ -12,9 +12,36 @@ function NewExpenses(prop) {
     prop.addExpenses(expenseData);
   }
 
+
+  //creating state here for changing isEditing, everytime when user click on "Enter Expenses" button
+
+  let [isEditing, setIsEditing] = useState(false);
+
+  function editingHandler() {
+    setIsEditing(true);
+  }
+
+  function cancelButtonHandler() {
+    setIsEditing(false);
+  }
+
+  // here below Enter Expenses button wil be shown if isEditing is false, and Form will be shown if it is true
+
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      {!isEditing && (
+        <button type="button" onClick={editingHandler}>
+          Enter Expenses
+        </button>
+      )}
+
+      
+      {isEditing && (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseDataHandler}
+          onCancel={cancelButtonHandler}              //here passing cancelButtonHandler function for cancel button in ExpenseForm, it will change isEditing to false again and "ExpenseForm" will close
+        />
+      )}
     </div>
   );
 }
