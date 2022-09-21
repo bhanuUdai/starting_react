@@ -18,6 +18,7 @@ function ExpensesList(prop) {
   }
 
   return prop.data.map((data) => {
+    console.log(data.id)
     return (
       <ul className="expenses-list">
         <ExpenseItem

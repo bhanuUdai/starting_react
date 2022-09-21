@@ -12,21 +12,21 @@ let items = [
   {
     id: 2,
     title: "Petrol",
-    amount: 500,
+    amount: 50,
     date: new Date(2022, 0, 2),
     location: "Una",
   },
   {
     id: 3,
     title: "Diesel",
-    amount: 400,
+    amount: 40,
     date: new Date(2022, 0, 3),
     location: "Kullu",
   },
   {
     id: 4,
     title: "LPG",
-    amount: 1000,
+    amount: 10,
     date: new Date(2022, 0, 4),
     location: "Mandi",
   },
@@ -40,7 +40,7 @@ function App() {
     // console.log(expense);
     newItem([...oldItems, expense]);
   };
-  // console.log(items);
+  console.log(items);
   return (
     <div>
       <h2>Expense Tracker</h2>

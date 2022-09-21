@@ -28,7 +28,7 @@ function ExpenseForm(prop) {
     event.preventDefault();
     let obj = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: enteredDate,
     };
 
